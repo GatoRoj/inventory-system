@@ -268,15 +268,12 @@ table tbody tr:nth-child(odd) {
 
 @media( max-width: 1023px ){
 
-.cajaizquierda{
-  background-color:red;
-}
 .Buscador{
   border: 1px solid #000;
   border-radius: 81px;
   width: 100%;
-  font-size: 18px;
-  padding-left: 5rem;
+  font-size: 76px;
+  padding-left: 2rem;
 }
 .Nav{
   display: flex;
@@ -290,12 +287,46 @@ table tbody tr:nth-child(odd) {
 .Buttons{
   width: 100px;
   border: 0px solid red;
-  margin-left: 6.5rem;
+  margin-left: 5.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 44px;
+  font-size: 76px;
+  margin-right: 4rem;
 }
+.maria{
+  margin:1em;
+}
+
+.texto p {
+  padding-bottom: 3px;
+  font-size: 37px;
+}
+.texto p:nth-child(2) {
+  font-size: 28px;
+}
+ul li{
+  border-radius: 76px;
+}
+
+.controls{
+  font-size:37px;
+  min-width:156px;
+}
+.count{
+  font-size:37px;
+}
+#click{
+  font-size:76px;
+  border-radius: 92px;
+}
+table thead td {
+  font-size: 30px;
+}
+tr{
+  font-size: 37px;
+}
+
 }
 
 
