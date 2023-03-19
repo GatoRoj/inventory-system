@@ -7,7 +7,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html --open",
-    "build": "parcel build index.html --public-url ./"
+    "build": "parcel build index.html",
+    "upload": "npx gh-pages -d dist"
   },
   "keywords": [],
   "author": "",
