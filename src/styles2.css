@@ -287,7 +287,7 @@ table tbody tr:nth-child(odd) {
 .Buttons{
   width: 100px;
   border: 0px solid red;
-  margin-left: 5.5rem;
+  margin-left: 6.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -317,9 +317,16 @@ ul li{
   font-size:37px;
 }
 #click{
-  font-size:76px;
+  font-size:37px;
+  padding: 2rem 4rem;
+  border-right: 4px solid #fdd674;
+  border-bottom: 4px solid #fdd674;
   border-radius: 92px;
 }
+.fa-upload{
+  margin-left:12px;
+}
+
 table thead td {
   font-size: 30px;
 }
