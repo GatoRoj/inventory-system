@@ -32,26 +32,7 @@ function additem(item, amount) {
     let total = empaque * amount;
     console.log(empaque, "emp", amount, "amoun", total, "total", index, it);
     createRow(item);
-    try {
-      const x = document.getElementById("tbl_exporttable_to_xls").rows[index]
-        .cells;
-      x[4].innerHTML = empaque * amount;
 
-      //var y = document.getElementById("tbl_exporttable_to_xls").rows[index].cells;
-      x[5].addEventListener("click", (el) => {
-        console.log(el.target.parentNode.parentNode.rowIndex);
-        console.log("index: ", index);
-        document
-          .getElementById("tbl_exporttable_to_xls")
-          .deleteRow(el.target.parentNode.parentNode.rowIndex);
-        shop.splice(it, 1);
-        console.log(shop);
-        console.log("Final index", index);
-        shop = [];
-      });
-    } catch (e) {
-      console.log(e);
-    }
   }
   if (amount >= 1) {
     console.log("search");
@@ -66,8 +47,7 @@ function additem(item, amount) {
     //======================================//
     //Encontrar el amount del row y multiplicarlo
     //convertir en funcion
-    var x = document.getElementById("tbl_exporttable_to_xls").rows[index].cells;
-    x[4].innerHTML = empaque * amount;
+
   }
   console.log("additemwork");
   console.log(shop);
@@ -134,68 +114,7 @@ upload.addEventListener("click", function () {
 
           let jsonObject = JSON.stringify(rowObject, undefined, 4);
         });
-        /*
-        const elements = document.querySelectorAll(`.operation`);
-
-        elements.forEach((element) => {
-          let numCount = 0;
-          element.addEventListener("click", (element) => {
-            console.log("Clicked!");
-            if (element.target.classList.contains("fa-minus")) {
-              //Get count value to aument
-              let code = element.target.getAttribute("code");
-              //With code get count
-              let count = document.getElementById(`${code}`);
-              let counter = count.getAttribute("count");
-              //increase counter
-              console.log(counter);
-              if (counter == 0.5) {
-                counter = parseFloat(counter) - 0.5;
-              } else {
-                counter--;
-              }
-
-              console.log(counter);
-              //Set counter to element
-              count.setAttribute("count", `${counter}`);
-              //Change display value to increment
-              count.innerHTML = counter;
-              // find code into database(stok)
-              let it = stok.find(({ __EMPTY }) => __EMPTY == code);
-              console.log(it);
-              delitem(it, counter);
-              // push from database to shop array
-              console.log("Shop", shop);
-            } else {
-              //Get count value to aument
-              let code = element.target.getAttribute("code");
-              //With code get count
-              let count = document.getElementById(`${code}`);
-              let counter = count.getAttribute("count");
-              //increase counter
-              console.log(counter);
-              if (counter == 0) {
-                counter = 0.5;
-              } else {
-                counter = Math.round(parseFloat(counter) + 0.5);
-                console.log("COUNTERRRR", counter);
-              }
-              console.log(counter);
-              //Set counter to element
-              count.setAttribute("count", `${counter}`);
-              //Change display value to increment
-              count.innerHTML = counter;
-              // find code into database(stok)
-              let it = stok.find(({ __EMPTY }) => __EMPTY == code);
-              console.log(it);
-              additem(it, counter);
-              // delete from database to shop array
-              console.log("Shop", shop);
-            }
-          });
-          console.log("IIIIIIIIIIIIIIII", i);
-          console.log("LENGTT", selectedFile.length);
-        });*/
+       
         let limit = selectedFile.length - 1;
         if (i == limit) {
           actButton();
@@ -219,7 +138,7 @@ var shop = [];
 const productos = document.getElementById("productos");
 
 function createItem(el) {
-  // Make the document element that visualize the data
+  // Make the document element )that visualize the data
   var item = document.createElement("li");
 
   let code = el.__EMPTY;
@@ -249,7 +168,7 @@ function createItem(el) {
   productos.appendChild(item);
 }
 
-const carrito = document.getElementById("tbl_exporttable_to_xls");
+const carrito = document.getElementById("tbl_items");
 
 //Create table
 function createRow(il) {
@@ -264,7 +183,6 @@ function createRow(il) {
     <td class='desc'>${desc}</td>
     <td class='uni'>UNI</td>
     <td class='cant' contenteditable>${empaque}</td>
-    <td ><button>X</button></td>
   `;
   row.innerHTML = rowHTML;
   carrito.append(row);
@@ -407,4 +325,17 @@ market.addEventListener("click", function () {
     der.classList.add("disableder");
   }
   console.log(der);
+});
+
+function deletedata(){
+  shop = [];
+  let table = document.getElementById('tbl_items');
+  table.innerHTML = "";
+}
+
+
+const buttondel = document.getElementById("buttondel");
+
+buttondel.addEventListener("click", function () {
+  deletedata();
 });
