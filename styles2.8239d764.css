@@ -175,7 +175,7 @@ ul li {
   margin: 0.5rem;
 }
 
-#click {
+.delsave {
   color: #fdd674;
   padding: 1rem 2rem 1rem 2rem;
   border-right: 2px solid #fdd674;
@@ -185,6 +185,8 @@ ul li {
   border-radius: 30px;
   font-size: 20px;
   cursor: pointer;
+  margin-left:0.2em;
+  margin-right:0.2em;
 }
 
 .Buttons {
@@ -195,6 +197,8 @@ ul li {
   align-items: center;
   justify-content: center;
   font-size: 25px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .count {
@@ -287,7 +291,7 @@ table tbody tr:nth-child(odd) {
 .Buttons{
   width: 100px;
   border: 0px solid red;
-  margin-left: 5.5rem;
+  margin-left: 6.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -316,15 +320,42 @@ ul li{
 .count{
   font-size:37px;
 }
-#click{
+.fa-upload{
+  margin-left:16px;
+}
+.delsave{
   font-size:76px;
-  border-radius: 92px;
+  border-radius: 88px;
+  padding: 2rem 4rem;
+  border-right: 4px solid #fdd674;
+  border-bottom: 4px solid #fdd674;
+  margin-left: 0.2em;
+  margin-right: 0.2em;
+
+}
+.buttons2{
+  min-width:805px;
 }
 table thead td {
   font-size: 30px;
 }
 tr{
   font-size: 37px;
+}
+
+.wait{
+  width: 325px;
+  height: 38px;
+  border-radius: 19px;
+}
+.wait2{
+  height: 26px;
+  border-radius: 51px;
+}
+.wait3{
+  height: 56px;
+  margin-left: 7px;
+  width: 56px;
 }
 
 }

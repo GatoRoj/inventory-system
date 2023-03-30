@@ -32301,23 +32301,6 @@ function additem(item, amount) {
     var total = empaque * amount;
     console.log(empaque, "emp", amount, "amoun", total, "total", index, it);
     createRow(item);
-    try {
-      var _x = document.getElementById("tbl_exporttable_to_xls").rows[index].cells;
-      _x[4].innerHTML = empaque * amount;
-
-      //var y = document.getElementById("tbl_exporttable_to_xls").rows[index].cells;
-      _x[5].addEventListener("click", function (el) {
-        console.log(el.target.parentNode.parentNode.rowIndex);
-        console.log("index: ", index);
-        document.getElementById("tbl_exporttable_to_xls").deleteRow(el.target.parentNode.parentNode.rowIndex);
-        shop.splice(it, 1);
-        console.log(shop);
-        console.log("Final index", index);
-        shop = [];
-      });
-    } catch (e) {
-      console.log(e);
-    }
   }
   if (amount >= 1) {
     console.log("search");
@@ -32335,9 +32318,8 @@ function additem(item, amount) {
     //======================================//
     //Encontrar el amount del row y multiplicarlo
     //convertir en funcion
-    var x = document.getElementById("tbl_exporttable_to_xls").rows[_index].cells;
-    x[4].innerHTML = empaque * amount;
   }
+
   console.log("additemwork");
   console.log(shop);
 }
@@ -32400,66 +32382,6 @@ upload.addEventListener("click", function () {
           }
           var jsonObject = JSON.stringify(rowObject, undefined, 4);
         });
-        /*
-        const elements = document.querySelectorAll(`.operation`);
-          elements.forEach((element) => {
-          let numCount = 0;
-          element.addEventListener("click", (element) => {
-            console.log("Clicked!");
-            if (element.target.classList.contains("fa-minus")) {
-              //Get count value to aument
-              let code = element.target.getAttribute("code");
-              //With code get count
-              let count = document.getElementById(`${code}`);
-              let counter = count.getAttribute("count");
-              //increase counter
-              console.log(counter);
-              if (counter == 0.5) {
-                counter = parseFloat(counter) - 0.5;
-              } else {
-                counter--;
-              }
-                console.log(counter);
-              //Set counter to element
-              count.setAttribute("count", `${counter}`);
-              //Change display value to increment
-              count.innerHTML = counter;
-              // find code into database(stok)
-              let it = stok.find(({ __EMPTY }) => __EMPTY == code);
-              console.log(it);
-              delitem(it, counter);
-              // push from database to shop array
-              console.log("Shop", shop);
-            } else {
-              //Get count value to aument
-              let code = element.target.getAttribute("code");
-              //With code get count
-              let count = document.getElementById(`${code}`);
-              let counter = count.getAttribute("count");
-              //increase counter
-              console.log(counter);
-              if (counter == 0) {
-                counter = 0.5;
-              } else {
-                counter = Math.round(parseFloat(counter) + 0.5);
-                console.log("COUNTERRRR", counter);
-              }
-              console.log(counter);
-              //Set counter to element
-              count.setAttribute("count", `${counter}`);
-              //Change display value to increment
-              count.innerHTML = counter;
-              // find code into database(stok)
-              let it = stok.find(({ __EMPTY }) => __EMPTY == code);
-              console.log(it);
-              additem(it, counter);
-              // delete from database to shop array
-              console.log("Shop", shop);
-            }
-          });
-          console.log("IIIIIIIIIIIIIIII", i);
-          console.log("LENGTT", selectedFile.length);
-        });*/
         var limit = selectedFile.length - 1;
         if (i == limit) {
           actButton();
@@ -32483,7 +32405,7 @@ var shop = [];
 // == Div que cotendra la database disponible == //
 var productos = document.getElementById("productos");
 function createItem(el) {
-  // Make the document element that visualize the data
+  // Make the document element )that visualize the data
   var item = document.createElement("li");
   var code = el.__EMPTY;
   var name = el.__EMPTY_1;
@@ -32497,7 +32419,7 @@ function createItem(el) {
   item.innerHTML = itemHTML;
   productos.appendChild(item);
 }
-var carrito = document.getElementById("tbl_exporttable_to_xls");
+var carrito = document.getElementById("tbl_items");
 
 //Create table
 function createRow(il) {
@@ -32506,7 +32428,7 @@ function createRow(il) {
   var desc = il.__EMPTY_1;
   var amount = il.__amount__;
   var empaque = il.__EMPTY_7;
-  var rowHTML = "\n    <td class='code'>".concat(code, "</td>\n    <td class='item'><p></p></td>\n    <td class='desc'>").concat(desc, "</td>\n    <td class='uni'>UNI</td>\n    <td class='cant' contenteditable>").concat(empaque, "</td>\n    <td ><button>X</button></td>\n  ");
+  var rowHTML = "\n    <td class='code'>".concat(code, "</td>\n    <td class='item'><p></p></td>\n    <td class='desc'>").concat(desc, "</td>\n    <td class='uni'>UNI</td>\n    <td class='cant' contenteditable>").concat(empaque, "</td>\n  ");
   row.innerHTML = rowHTML;
   carrito.append(row);
 }
@@ -32654,6 +32576,15 @@ market.addEventListener("click", function () {
   }
   console.log(der);
 });
+function deletedata() {
+  shop = [];
+  var table = document.getElementById('tbl_items');
+  table.innerHTML = "";
+}
+var buttondel = document.getElementById("buttondel");
+buttondel.addEventListener("click", function () {
+  deletedata();
+});
 },{"xlsx":"node_modules/xlsx/xlsx.mjs"}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -32679,7 +32610,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64936" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61356" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
